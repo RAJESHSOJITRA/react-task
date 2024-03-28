@@ -1,8 +1,9 @@
 import React from 'react';
 
-const BookList = ({ data, onDelete, onEdit }) => {
+const BookList = ({ data, onDelete, onEdit ,onDuplicate }) => {
   return (
     <div className="col-md-8">
+       
       <h2>Books List</h2>
       <div className="row">
         {data.map(item => (
@@ -12,12 +13,13 @@ const BookList = ({ data, onDelete, onEdit }) => {
               <div className="card-body">
                 <ul>
                   <li>ID: {item.id}</li>
-                  <li>Name: {item.bookName}</li>
+                  <li>Book Name: {item.bookName}</li>
                   <li>Description: {item.Description}</li>
                   <li>Author: {item.author}</li>
                 </ul>
                 <button className="btn btn-danger mr-2" onClick={() => onDelete(item.id)}>Delete</button>
                 <button className="btn btn-info" onClick={() => onEdit(item)}>Edit</button>
+                <button className="btn btn-success" onClick={() => onDuplicate(item)}>Duplicate</button>
               </div>
             </div>
           </div>
